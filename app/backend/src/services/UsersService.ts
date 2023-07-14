@@ -20,6 +20,4 @@ export default class UsersService {
     }
     return { code: 200, data: user };
   }
-
-  // public async
 }
