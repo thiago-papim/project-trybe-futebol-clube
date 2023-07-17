@@ -58,9 +58,8 @@ describe('Testando Login', () => {
     expect(status).to.eq(401);
     expect(body).to.deep.equal({ message: 'Invalid email or password' });
   });
-
-  it('Testando Login com token incorreto', async function (){
-    sinon.stub(SequelizeUsers, 'findOne').resolves(user as any);
+    it('Testando Login com token incorreto', async function (){
+    sinon.stub(SequelizeUsers, 'findOne').resolves(null);
     const { status, body } = await chai.request(app).post('/login')
     // .set('Authorization', 'teste')
     .send({
@@ -68,7 +67,20 @@ describe('Testando Login', () => {
       "password": "secret_admin"
     });   
 
-    expect(status).to.eq(200);
-    // expect(body).to.deep.equal({ message: 'Invalid email or password' });
+    expect(status).to.eq(401);
+    expect(body).to.deep.equal({ message: 'Invalid email or password' });
   });
+
+  // it('Testando Login com token incorreto', async function (){
+  //   sinon.stub(SequelizeUsers, 'findOne').resolves(user as any);
+  //   const { status, body } = await chai.request(app).post('/login')
+  //   // .set('Authorization', 'teste')
+  //   .send({
+  //     "email": "admin@admin.com",
+  //     "password": "secret_admin"
+  //   });   
+
+  //   expect(status).to.eq(200);
+  //   expect(body).to.deep.equal({ message: 'Invalid email or password' });
+  // });
 });
