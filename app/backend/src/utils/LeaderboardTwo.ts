@@ -4,27 +4,25 @@ import { IMatches } from '../Interfaces/matches/IMatches';
 
 export default class Leaderboard {
   private matches: IMatches[];
-  private local: 'homeTeamId' | 'awayTeamId';
   private teams: ITeams[];
-  private homeTeamGoals: 'homeTeamGoals' | 'awayTeamGoals';
-  private awayTeamGoals: 'awayTeamGoals' | 'homeTeamGoals';
+  private team: ITeams;
 
   constructor(
     matches: IMatches[],
-    homeOrAway: 'homeTeamId' | 'awayTeamId',
     teams: ITeams[],
+    team: ITeams,
   ) {
     this.matches = matches;
-    this.local = homeOrAway;
     this.teams = teams;
-    this.homeTeamGoals = this.local === 'homeTeamId' ? 'homeTeamGoals' : 'awayTeamGoals';
-    this.awayTeamGoals = this.homeTeamGoals === 'homeTeamGoals' ? 'awayTeamGoals' : 'homeTeamGoals';
+    this.team = team;
   }
 
   get name() {
-    const teamName = this.teams
-      .find((e) => e.id === this.matches[1][this.local])?.teamName;
-    return teamName;
+    return this.team.teamName;
+  }
+
+  get id() {
+    return this.team.id;
   }
 
   get totalPoints() {
@@ -35,24 +33,40 @@ export default class Leaderboard {
     return this.matches.length;
   }
 
+  get homeMatches() {
+    return this.matches.filter((e) => e.homeTeamId === this.id);
+  }
+
+  get awayMatches() {
+    return this.matches.filter((e) => e.awayTeamId === this.id);
+  }
+
   get totalVictories() {
-    return this.matches.filter((e) => e[this.homeTeamGoals] > e[this.awayTeamGoals]).length;
+    return this.homeMatches
+      .filter((e) => e.homeTeamGoals > e.awayTeamGoals).length + this.awayMatches
+      .filter((e) => e.homeTeamGoals < e.awayTeamGoals).length;
   }
 
   get totalDraws() {
-    return this.matches.filter((e) => e[this.homeTeamGoals] === e[this.awayTeamGoals]).length;
+    return this.matches.filter((e) => e.awayTeamGoals === e.homeTeamGoals).length;
   }
 
   get totalLosses() {
-    return this.matches.filter((e) => e[this.homeTeamGoals] < e[this.awayTeamGoals]).length;
+    return this.totalGames - this.totalVictories - this.totalDraws;
   }
 
   get goalsFavor() {
-    return this.matches.reduce((acc, curr) => acc + curr[this.homeTeamGoals], 0);
+    const homeGoals = this.homeMatches.reduce((acc, curr) => acc + curr.homeTeamGoals, 0);
+    const awayGoals = this.awayMatches.reduce((acc, curr) => acc + curr.awayTeamGoals, 0);
+    console.log(this.name, homeGoals + awayGoals);
+
+    return homeGoals + awayGoals;
   }
 
   get goalsOwn() {
-    return this.matches.reduce((acc, curr) => acc + curr[this.awayTeamGoals], 0);
+    const homeGoals = this.homeMatches.reduce((acc, curr) => acc + curr.awayTeamGoals, 0);
+    const awayGoals = this.awayMatches.reduce((acc, curr) => acc + curr.homeTeamGoals, 0);
+    return homeGoals + awayGoals;
   }
 
   get goalsBalance() {
@@ -63,7 +77,7 @@ export default class Leaderboard {
     return ((this.totalPoints / (this.totalGames * 3)) * 100).toFixed(2);
   }
 
-  get result(): LeaderboardResponse {
+  get resultAll(): LeaderboardResponse {
     return {
       name: this.name,
       totalPoints: this.totalPoints,

@@ -1,30 +1,36 @@
 import customSort from '../utils/sortCustom';
 import LeaderboardModel from '../models/LeaderboardModel';
 import { ILeaderboardModel } from '../Interfaces/leaderboard/ILeaderboardModel';
-import Leaderboard from '../utils/Leaderboard';
-// import Leaderboard from '../utils/Leaderboard';
+import { homeOrAway } from '../Interfaces/matches/IMatches';
+import responseLeaderBoard from '../utils/responseLeaderboard';
 
 export default class LeaderboardService {
   constructor(
     private leaderboardModel: ILeaderboardModel = new LeaderboardModel(),
   ) { }
 
-  public async findHomeAway(local: string) {
+  public async findHomeAway(local: homeOrAway) {
     const { matches, teams } = await this.leaderboardModel.findAll();
-    const locations = local === 'homeTeamId' ? 'homeTeamId' : 'awayTeamId';
+    const matchesFinish = matches.filter((e) => e.inProgress === false);
     const arrMatches = [];
     for (let i = 0; i < teams.length; i += 1) {
-      const match = matches.filter((e) => e[locations] === teams[i].id);
+      const match = matchesFinish.filter((e) => e[local] === teams[i].id);
       arrMatches.push(match);
     }
-    // console.log(arrMatches);
-    const response = arrMatches.map((Matches) => {
-      const result = new Leaderboard(Matches, locations, teams);
-      // console.log(result.name);
+    const response = responseLeaderBoard(arrMatches, teams);
+    return response.sort(customSort);
+  }
 
-      return result.result;
-    });
-    // console.log(response);
+  public async allLeaderboard() {
+    const { matches, teams } = await this.leaderboardModel.findAll();
+    const matchesFinish = matches.filter((e) => e.inProgress === false);
+    const arrMatches = [];
+    for (let i = 0; i < teams.length; i += 1) {
+      const match = matchesFinish
+        .filter((e) => e.homeTeamId === teams[i].id || e.awayTeamId === teams[i].id);
+      arrMatches.push(match);
+    }
+    const response = responseLeaderBoard(arrMatches, teams);
     return response.sort(customSort);
   }
 }
