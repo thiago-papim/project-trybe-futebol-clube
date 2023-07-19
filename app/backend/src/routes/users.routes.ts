@@ -10,8 +10,7 @@ const router = Router();
 router.post('', (req: Request, res: Response) => usersController.login(req, res));
 router.get(
   '/role',
-  (req: Request, res: Response, next: NextFunction) => loginRole
-    .validateToken(req, res, next),
+  (req: Request, res: Response, next: NextFunction) => loginRole.validateToken(req, res, next),
   (req: Request, res: Response) => loginRole.role(req, res),
 );
 export default router;

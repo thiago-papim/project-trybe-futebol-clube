@@ -19,8 +19,6 @@ export default class MatchesService {
 
   public async filterMatches(inProgress: boolean): Promise<IMatches[]> {
     const arrMatches = await this.matchesModel.filterMatches(inProgress);
-    console.log(inProgress);
-
     return arrMatches;
   }
 

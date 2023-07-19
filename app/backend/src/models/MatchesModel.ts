@@ -15,6 +15,7 @@ export default class MatchesModel implements IMatchesModel {
     const data = await this.model.findAll({
       include: this.teamInclude,
     });
+
     return data;
   }
 
@@ -44,7 +45,6 @@ export default class MatchesModel implements IMatchesModel {
       { homeTeamGoals, awayTeamGoals },
       { where: { id } },
     );
-    console.log(data);
     if (data) {
       return true;
     }
