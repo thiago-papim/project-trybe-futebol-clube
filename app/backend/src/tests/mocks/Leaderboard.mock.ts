@@ -766,6 +766,38 @@ const matches = [
 		"awayTeam": {
 			"teamName": "Bahia"
 		}
+	},
+	{
+		"id": 2,
+		"homeTeamId": 9,
+		"homeTeamGoals": 1,
+		"awayTeamId": 2,
+		"awayTeamGoals": 1,
+		"inProgress": false,
+		"home_team_id": 9,
+		"away_team_id": 14,
+		"homeTeam": {
+			"teamName": "Internacional"
+		},
+		"awayTeam": {
+			"teamName": "Bahia"
+		}
+	},
+	{
+		"id": 2,
+		"homeTeamId": 9,
+		"homeTeamGoals": 1,
+		"awayTeamId": 2,
+		"awayTeamGoals": 1,
+		"inProgress": false,
+		"home_team_id": 9,
+		"away_team_id": 14,
+		"homeTeam": {
+			"teamName": "Internacional"
+		},
+		"awayTeam": {
+			"teamName": "Bahia"
+		}
 	}
 ];
 
@@ -862,6 +894,18 @@ const resultLeaderboardAll = [
 		"efficiency": "80.00"
 	},
 	{
+		"name": "Internacional",
+		"totalPoints": 12,
+		"totalGames": 7,
+		"totalVictories": 3,
+		"totalDraws": 3,
+		"totalLosses": 1,
+		"goalsFavor": 9,
+		"goalsOwn": 8,
+		"goalsBalance": 1,
+		"efficiency": "57.14"
+	},
+	{
 		"name": "Santos",
 		"totalPoints": 11,
 		"totalGames": 5,
@@ -882,18 +926,6 @@ const resultLeaderboardAll = [
 		"totalLosses": 1,
 		"goalsFavor": 9,
 		"goalsOwn": 8,
-		"goalsBalance": 1,
-		"efficiency": "66.67"
-	},
-	{
-		"name": "Internacional",
-		"totalPoints": 10,
-		"totalGames": 5,
-		"totalVictories": 3,
-		"totalDraws": 1,
-		"totalLosses": 1,
-		"goalsFavor": 7,
-		"goalsOwn": 6,
 		"goalsBalance": 1,
 		"efficiency": "66.67"
 	},
@@ -995,15 +1027,15 @@ const resultLeaderboardAll = [
 	},
 	{
 		"name": "Bahia",
-		"totalPoints": 2,
-		"totalGames": 5,
+		"totalPoints": 4,
+		"totalGames": 7,
 		"totalVictories": 0,
-		"totalDraws": 2,
+		"totalDraws": 4,
 		"totalLosses": 3,
-		"goalsFavor": 2,
-		"goalsOwn": 6,
+		"goalsFavor": 4,
+		"goalsOwn": 8,
 		"goalsBalance": -4,
-		"efficiency": "13.33"
+		"efficiency": "19.05"
 	},
 	{
 		"name": "Minas Brasília",
@@ -1093,6 +1125,18 @@ const resultHome = [
 		"efficiency": "100.00"
 	},
 	{
+		"name": "Internacional",
+		"totalPoints": 6,
+		"totalGames": 5,
+		"totalVictories": 1,
+		"totalDraws": 3,
+		"totalLosses": 1,
+		"goalsFavor": 6,
+		"goalsOwn": 8,
+		"goalsBalance": -2,
+		"efficiency": "40.00"
+	},
+	{
 		"name": "São Paulo",
 		"totalPoints": 4,
 		"totalGames": 2,
@@ -1103,18 +1147,6 @@ const resultHome = [
 		"goalsOwn": 1,
 		"goalsBalance": 3,
 		"efficiency": "66.67"
-	},
-	{
-		"name": "Internacional",
-		"totalPoints": 4,
-		"totalGames": 3,
-		"totalVictories": 1,
-		"totalDraws": 1,
-		"totalLosses": 1,
-		"goalsFavor": 4,
-		"goalsOwn": 6,
-		"goalsBalance": -2,
-		"efficiency": "44.44"
 	},
 	{
 		"name": "Botafogo",
@@ -1336,6 +1368,18 @@ const resultAway = [
 		"efficiency": "44.44"
 	},
 	{
+		"name": "Bahia",
+		"totalPoints": 4,
+		"totalGames": 4,
+		"totalVictories": 0,
+		"totalDraws": 4,
+		"totalLosses": 0,
+		"goalsFavor": 4,
+		"goalsOwn": 4,
+		"goalsBalance": 0,
+		"efficiency": "33.33"
+	},
+	{
 		"name": "Avaí/Kindermann",
 		"totalPoints": 3,
 		"totalGames": 2,
@@ -1368,18 +1412,6 @@ const resultAway = [
 		"totalLosses": 0,
 		"goalsFavor": 3,
 		"goalsOwn": 3,
-		"goalsBalance": 0,
-		"efficiency": "33.33"
-	},
-	{
-		"name": "Bahia",
-		"totalPoints": 2,
-		"totalGames": 2,
-		"totalVictories": 0,
-		"totalDraws": 2,
-		"totalLosses": 0,
-		"goalsFavor": 2,
-		"goalsOwn": 2,
 		"goalsBalance": 0,
 		"efficiency": "33.33"
 	},
