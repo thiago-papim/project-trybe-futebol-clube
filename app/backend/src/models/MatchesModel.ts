@@ -34,6 +34,8 @@ export default class MatchesModel implements IMatchesModel {
         returning: true,
       },
     );
+    console.log(data);
+
     if (data[1]) {
       return true;
     }
@@ -55,6 +57,8 @@ export default class MatchesModel implements IMatchesModel {
     const dataDb = await this.model.create(data);
     const { id,
       homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress }: IMatches = dataDb;
+    console.log(dataDb);
+
     return { id, homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress };
   }
 }

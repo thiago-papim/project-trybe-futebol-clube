@@ -6,4 +6,9 @@ const user = {
   role: 'admin'
 }
 
-export { user }
+const userLogin = {
+  email: 'admin@admin.com',
+  password: '123456'
+}
+
+export { user, userLogin }

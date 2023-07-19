@@ -196,4 +196,36 @@ const matchesMockInProgress = [
 	}
 ]
 
-export {matchesMock, matchesMockInProgress};
+const createMatchModel = {
+	id: 51,
+	homeTeamId: 2,
+	awayTeamId: 16,
+	homeTeamGoals: 2,
+	awayTeamGoals: 2,
+	inProgress: true
+};
+
+const createMatchModelEqual = {
+	id: 52,
+	homeTeamId: 2,
+	awayTeamId: 2,
+	homeTeamGoals: 2,
+	awayTeamGoals: 2,
+	inProgress: true
+};
+
+const jsonCreateMacth = {
+	homeTeamId: 2,
+  awayTeamId: 16,
+  homeTeamGoals: 2,
+  awayTeamGoals: 2
+};
+
+const jsonCreateMacthEqual = {
+	homeTeamId: 2,
+  awayTeamId: 2,
+  homeTeamGoals: 2,
+  awayTeamGoals: 2
+};
+
+export {matchesMock, matchesMockInProgress, createMatchModel, jsonCreateMacth, createMatchModelEqual, jsonCreateMacthEqual };
