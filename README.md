@@ -5,10 +5,13 @@ Feito por [Thiago Papim](https://www.linkedin.com/in/thiago-papim/)
 
 ## Sobre o Projeto 📝
  
-O TFC é um site informativo sobre partidas e classificações de futebol! ⚽
-<br>Nele você pode criar, atualizar e finalizar partidas, pode também ver a classificação dos times por time da casa, visitante ou uma classificação geral. Temos um sistema de login e autenticação.
-<br>Todo o projeto foi trabalhado principalmente em TypeScript, Sequelize e MySQL juntamente com as ferramentas listadas abaixo.
-<br>E melhor, pode ser visualizado pelo frontend já configurado no projeto.
+Trybe Futebol Clube: seu portal informativo completo e interativo sobre partidas e classificações de futebol! ⚽
+<br>O TFC é um projeto ambicioso desenvolvido com paixão e dedicação para proporcionar a todos os amantes do futebol uma experiência única e envolvente. Com uma combinação poderosa de tecnologias, como TypeScript, Sequelize e MySQL, o TFC oferece uma plataforma robusta e confiável para os apaixonados pelo esporte mais popular do mundo.
+<br>O que o TFC oferece:
+<br>
+- Gerenciamento de Partidas: O TFC permite que você crie, atualize e finalize partidas de futebol de forma intuitiva. Nosso sistema simplifica todo o processo, mantendo os registros atualizados e organizados.<br><br>
+- Classificações Detalhadas: Acompanhe a performance das equipes em diferentes perspectivas. O TFC fornece classificações por time da casa, time visitante e a classificação geral.<br><br>
+- Sistema de Login Seguro: Nós priorizamos a segurança dos nossos usuários. O TFC possui um sistema de login e autenticação confiável, garantindo que apenas pessoas autorizadas possam acessar e gerenciar as informações do site.
 
 ## Ferramentas e Habilidades utilizadas ⚙️
 - TypeScript
